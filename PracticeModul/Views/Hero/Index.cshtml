@@ -1,0 +1,36 @@
+﻿@using PracticeModul.Helpers
+@using PracticeModul.Models
+@model IEnumerable<Hero>
+@inject TableBuilder tb
+
+@section head{
+    <title>List your Hero</title>
+    <meta name="keywords" content="list, heroes, herocollection">
+}
+
+<h1>SuperHeroes</h1>
+
+@* @Html.Raw(tb.BuildTable(Model)) *@
+<table>
+    <tr>
+        <th>Picture</th> 
+        <th>Name</th>
+        <th>Level</th>
+        <th>HasMount?</th>
+        <th>Kast</th>
+        <th>Actions</th>
+    </tr>
+    @foreach(var item in Model){
+        @:<tr>
+        @: <td><img height="100" src="@Url.Action("GetImage", "Hero", new {id = item.Id})"/></td>
+        @: <td>@item.Name</td>
+        @: <td>@item.Level</td>
+        @: <td>@item.HasMount</td>
+        @: <td>@item.Kast</td>
+        @: <td>
+        @:    <a href="/hero/delete?name=@item.Name"><i class="fa-solid fa-trash"></i>Delete</a>
+        @:    <a href="/hero/update?name=@item.Name"><i class="fa-solid fa-file-pen"></i>Update</a>
+        @: </td>
+        @: </tr>
+    }
+</table>

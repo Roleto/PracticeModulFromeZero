@@ -1,0 +1,36 @@
+﻿@using PracticeModul.Models
+@model IEnumerable<Hero>
+@section head {
+    <title>List your Heroes!</title>
+    <meta name="keywords" content="list, heroes, herocollection">
+}
+
+<h1>SuperHeroes</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <div class="card">
+                <img src="@Url.Action("GetImage", "Hero", new {id = item.Id})" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-success text-center" style="width: @item.GetCurrentXpPercentage%"></div>
+                        <small class="justify-content-center d-flex position-absolute w-100">@item.Level&period;level</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@* <div class="herogrid">
+    @foreach (var item in Model)
+    {
+        <div class="herocard">
+            <img height="100" src="@Url.Action("GetImage", "Hero", new {id = item.Id})" />
+            <p class="heroname">@item.Name</p>
+            <p class="herolevel">@item.Level</p>
+        </div>
+    }
+</div> *@

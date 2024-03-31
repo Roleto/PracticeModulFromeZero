@@ -1,0 +1,8 @@
+﻿@using PracticeModul.Data.Interfaces
+@using PracticeModul.Models
+@inject IRepository<Hero> repo;
+<nav>
+    <a href="/Hero/Index"><i class="fa-solid fa-person"></i>List Heroes (@repo.Read().Count())</a>
+    <a href="/Hero/List"><i class="fa-solid fa-book-open-reader"></i>Browse Heroes (@repo.Read().Count())</a>
+    <a href="/Hero/Create"><i class="fa-solid fa-pen"></i>New Hero</a>
+</nav>

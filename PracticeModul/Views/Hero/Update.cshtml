@@ -1,0 +1,33 @@
+﻿@using PracticeModul.Models
+@model Hero
+
+@section head {
+    <title>Update your Hero</title>
+}
+
+<form action="update" method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column">
+    @Html.LabelFor(t => t.Id)
+    @Html.EditorFor(t => t.Id)
+    @* @Html.HiddenFor(t => t.Id) *@
+
+    @Html.LabelFor(t => t.Name)
+    @Html.EditorFor(t => t.Name)
+    @Html.ValidationMessageFor(t => t.Name)
+
+    @Html.LabelFor(t => t.Level)
+    @Html.EditorFor(t => t.Level)
+    @Html.ValidationMessageFor(t => t.Level)
+
+    @Html.LabelFor(t => t.HasMount)
+    @Html.CheckBoxFor(t => t.HasMount)
+
+    @Html.LabelFor(t => t.Kast)
+    @Html.DropDownListFor(t => t.Kast, Html.GetEnumSelectList(typeof(ClassEnum)))
+
+
+    @* <label>Picture</label>
+    <input type="file" name="picturedata"/> *@
+
+    <input type="submit" value="Update" />
+
+</form>

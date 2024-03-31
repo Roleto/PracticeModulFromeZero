@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/style.css" />
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.css" />
+    <link rel ="stylesheet"  href="http://fonts.googleapis.com/css?family=Roboto" />
+    <script src="https://kit.fontawesome.com/a0addb9504.js" crossorigin="anonymous"></script>
+    
+
+    @RenderSection("head", false)
+</head>
+<body>
+    @Html.Partial("Navbar")
+   
+    @RenderBody()
+</body>
+</html>
